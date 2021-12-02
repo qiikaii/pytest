@@ -54,9 +54,9 @@ def test_xss(browser):
     browser.implicitly_wait(3)
     try:
         wait.until(EC.title_is("main"))
-		print("No XSS found.")
+        print("No XSS found.")
         browser.close()
     
     except Exception as e:
-		assert 'XSS found'
+        assert 'XSS found'
         browser.close()
