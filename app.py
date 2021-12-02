@@ -13,9 +13,12 @@ app.config['SESSION_COOKIE_SECURE'] = False
 def index():
 	
 	if request.method == "POST":
-		session['search'] = request.form['search']
-		## return search
-		return redirect(url_for('mainpage'))
+		if request.form['search'].isalpha():
+			session['search'] = request.form['search']
+			## return search
+			return redirect(url_for('mainpage'))
+		else:
+			return render_template('index.html')
 	
 	return render_template('index.html')
 
