@@ -6,6 +6,8 @@ import secrets
 app = Flask(__name__)
 csrf = CSRFProtect(app)
 app.config["SECRET_KEY"] = secrets.token_urlsafe(16)
+app.config['SESSION_COOKIE_SECURE'] = False
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
