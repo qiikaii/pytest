@@ -73,7 +73,7 @@ pipeline {
                     }
                     post {
                         always {
-                            junit testResults: 'logs/uireport.xml'
+                            junit testResults: 'logs/uireport.xml', skipPublishingChecks: true
                             /* X08 Warnings Next Plugin */
                             recordIssues enabledForFailure: true, tool: codeAnalysis()	
                             recordIssues enabledForFailure: true, tool: codeChecker()
