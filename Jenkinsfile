@@ -29,6 +29,7 @@ pipeline {
             }
         }
 
+
         /* X07 Selenium portion */
         stage('unit/sel test') {
             parallel {
