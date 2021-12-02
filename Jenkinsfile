@@ -38,12 +38,12 @@ pipeline {
                     steps {
                         sh 'docker run -d -p 80:80 --name apptest --network testing theimg:latest'
                         input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                        // script {
-                            // try {sh 'yes | docker stop apptest'}
-                            // catch (Exception e) {echo "no container to stop"}
-                            // try {sh 'yes | docker rm apptest'}
-                            // catch (Exception e) {echo "no container to remove"}  
-                        // }
+                        script {
+                            try {sh 'yes | docker stop apptest'}
+                            catch (Exception e) {echo "no container to stop"}
+                            try {sh 'yes | docker rm apptest'}
+                            catch (Exception e) {echo "no container to remove"}  
+                        }
                     }
                 }
                 stage('Headless Browser Test') {
