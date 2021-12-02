@@ -4,8 +4,8 @@ from flask_wtf.csrf import CSRFProtect
 import secrets
 
 app = Flask(__name__)
-csrf = CSRFProtect(app)
 app.config["SECRET_KEY"] = secrets.token_urlsafe(16)
+csrf = CSRFProtect(app)
 app.config['SESSION_COOKIE_SECURE'] = False
 
 
