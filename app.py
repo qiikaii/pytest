@@ -1,6 +1,9 @@
 
 from flask import Flask, render_template, request, redirect, url_for, session
+from flask_wtf.csrf import CSRFProtect
+
 app = Flask(__name__)
+csrf = CSRFProtect(app)
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
