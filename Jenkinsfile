@@ -36,7 +36,7 @@ pipeline {
                 stage('Deploy') {
                     agent any
                     steps {
-                        sh 'docker run -d -p 5000:5000 --name apptest --network testing theimg:latest'
+                        sh 'docker run -d -p 80:80 --name apptest --network testing theimg:latest'
                         input message: 'Finished using the web site? (Click "Proceed" to continue)'
                         // script {
                             // try {sh 'yes | docker stop apptest'}
